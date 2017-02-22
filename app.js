@@ -13,11 +13,11 @@ app.use(async (ctx, next) => {
   let start = new Date
   await next()
   let ms = new Date - start
-  console.log(`Response-Time: ${ms}ms`)
+  console.log(`Response-Time: ${ms}ms, Request method is ${ctx.method}`)
 })
 
 app.on('error', function(err, ctx){
-  console.log('server error', err)
+  console.log('server error', err) 
 })
 
 router.use('/api', api.routes())

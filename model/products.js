@@ -16,11 +16,13 @@ const getProductById = async (id) => {
 	return prodInfo
 }
 
+// 查询所有的商品
 const getAllProd = async () => {
 	const allProd = await Product.findAll()
 	return allProd
 }
 
+// 根据id 删除某个产品
 const deleteProdById = async (id) => {
 	await Product.destroy({
 		where: {
@@ -29,10 +31,35 @@ const deleteProdById = async (id) => {
 	})
 }
 
+// 添加一条数据
+const addProd = async (data) => {
+	await Product.create({
+		prod_name: data.name,
+		price: data.price,
+		description: data.description
+	})
+}
+
+// 根据id 更新相应产品的数据
+const updateProd = async (data) => {
+	await Product.update(
+		{
+			prod_name: data.name,
+			price: data.price,
+			description: data.description
+		},
+		{
+			where: { id: data.id }
+		}
+	)
+}
+
 module.exports = {
 	getProductById,
 	getAllProd,
-	deleteProdById
+	deleteProdById,
+	addProd,
+	updateProd
 }
 
 
