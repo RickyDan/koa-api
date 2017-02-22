@@ -6,6 +6,7 @@ const ShoppingDb = db.Shopping
 // 用sequelize的import方法引入表结构 实例化 product
 const Product = ShoppingDb.import(productModel)
 
+// 根据某个id 去查询特定的商品
 const getProductById = async (id) => {
 	const prodInfo = await Product.findOne({
 		where: {
@@ -20,9 +21,18 @@ const getAllProd = async () => {
 	return allProd
 }
 
+const deleteProdById = async (id) => {
+	await Product.destroy({
+		where: {
+			id: id
+		}
+	})
+}
+
 module.exports = {
 	getProductById,
-	getAllProd
+	getAllProd,
+	deleteProdById
 }
 
 
