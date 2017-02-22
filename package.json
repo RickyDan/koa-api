@@ -4,7 +4,7 @@
   "description": "use koa write an restful server",
   "main": "app.js",
   "scripts": {
-    "schema": "sequelize-auto -o './schema' -d shopping -h 127.0.0.1 -u root -p 3306 -x 19901112 -e mysql"
+    "test": "ava"
   },
   "keywords": [
     "Koa",
@@ -14,6 +14,7 @@
   "author": "RickyDan",
   "license": "MIT",
   "devDependencies": {
+    "ava": "^0.18.2",
     "koa-bodyparser": "^2.3.0",
     "koa-json": "^1.1.3",
     "koa-logger": "^1.3.1",

@@ -15,11 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     price: {
       type: DataTypes.FLOAT,
       allowNull: true
-    },
-    prod_img: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
+    },    
     description: {
       type: DataTypes.TEXT,
       allowNull: true
