@@ -1,9 +1,10 @@
 const prods = require('../model/products')
 
-const getProdInfo = function* () {
-  const id = this.params.id
-  const result = yield prods.getProductById(id)
-  this.body = result
+const getProdInfo = async (ctx, next) => {
+  console.log(ctx)
+  const id = ctx.params.id
+  const result = await prods.getProductById(id)
+  ctx.body = result
 }
 
 module.exports = {

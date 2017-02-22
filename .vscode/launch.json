@@ -9,7 +9,15 @@
       "request": "launch",
       "name": "启动程序",
       "program": "${workspaceRoot}/app.js",
-      "cwd": "${workspaceRoot}"
+      "cwd": "${workspaceRoot}",
+      "runtimeArgs": [
+        "--harmony",
+        "--nolazy"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "sourceMaps": true
     },
     {
       "type": "node",

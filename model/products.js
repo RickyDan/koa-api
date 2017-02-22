@@ -5,8 +5,8 @@ const productModel = '../schema/products.js'
 const ShoppingDb = db.Shopping
 // 用sequelize的import方法引入表结构 实例化 product
 const Product = ShoppingDb.import(productModel)
-const getProductById = function* (id) {
-	const prodInfo = yield Product.findOne({
+const getProductById = async (id) => {
+	const prodInfo = await Product.findOne({
 		where: {
 			id: id
 		}

@@ -1,4 +1,5 @@
-const app = require('koa')()
+const Koa = require('koa')
+const app = new Koa()
 const router = require('koa-router')()
 const json = require('koa-json')
 const logger = require('koa-logger')
@@ -8,11 +9,11 @@ app.use(require('koa-bodyparser')())
 app.use(json())
 app.use(logger())
 
-app.use(function* (next){
+app.use(async (ctx, next) => {
   let start = new Date
-  yield next
+  await next()
   let ms = new Date - start
-  console.log('%s %s - %s', this.method, this.url, ms)
+  console.log(`Response-Time: ${ms}ms`)
 })
 
 app.on('error', function(err, ctx){
